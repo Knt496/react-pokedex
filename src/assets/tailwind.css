@@ -13,7 +13,3 @@
 .btn-blue:hover {
   @apply bg-blue-700;
 }
-
-.card {
-  @apply rounded overflow-hidden shadow-lg;
-}
