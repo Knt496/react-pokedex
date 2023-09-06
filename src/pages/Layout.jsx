@@ -53,7 +53,7 @@ const Layout = () => {
         </div>
       </nav>
 
-      <div className="container mx-auto mt-3">
+      <div className="container px-2 md:px-0 mx-auto mt-3 ">
         <Outlet />
       </div>
     </>

@@ -1,16 +1,19 @@
+import { Link } from "react-router-dom";
+
+
 const Card = ({pokemon}) => {
 
-  console.log(pokemon);
+//   console.log(pokemon);
 
   return (
-    <div className="w-1/5 max-w-sm bg-[#DC082D] border mb-5 mx-4 p-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-        <img className="p-8 rounded-t-lg object-cover w-full bg-white" src={pokemon.image} alt="product image" />
-      </a>
+    <div className="transition ease-in-out duration-500 hover:scale-105 bg-[#DC082D] border mb-5 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <Link to="/">
+        <img className="p-8 rounded-t-lg object-cover w-full bg-white" src={pokemon.image} alt="product" />
+      </Link>
       <div className="px-5 pb-5">
-          <a href="#">
+          <Link to="/">
               <h5 className="text-xl font-semibold tracking-tight text-white dark:text-white">{pokemon.name}</h5>
-          </a>
+          </Link>
           <div className="flex items-center mt-2.5 mb-5">
               <svg className="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                   <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
@@ -31,7 +34,7 @@ const Card = ({pokemon}) => {
           </div>
           <div className="flex items-center justify-between">
               <span className="text-3xl font-bold text-gray-900 dark:text-white">599 HP</span>
-              <a href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">More</a>
+              <Link to="/" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">More</Link>
           </div>
       </div>
     </div>
