@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import Card from "../components/Card";
 
 const Home = () => {
 
@@ -45,13 +45,14 @@ const Home = () => {
 
   useEffect(renderData,[])
 
+  const PokemonList = () => (
+    (pokemons.map((pokemon,index) => <Card key={index} pokemon={pokemon} />))
+  )
+      
+
   return (
     <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
-      <button className="rounded-lg bg-blue-500 shadow p-2 text-white">Click me</button>
-      <button className="rounded-lg bg-blue-500 shadow p-2 text-white">Click me</button>
-      <button className="rounded-lg bg-blue-500 shadow p-2 text-white">Click me</button>
-      <button className="rounded-lg bg-blue-500 shadow p-2 text-white">Click me</button>
-      <button className="rounded-lg bg-blue-500 shadow p-2 text-white">Click me</button>
+      <PokemonList />
     </div>
   )
 }
