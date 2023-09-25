@@ -11,32 +11,44 @@ const Home = () => {
       {
         name: "Bulbasur",
         image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-        number: "#0001"
+        number: "0001",
+        hp: 888,
+        types: ["normal"]
       },
       {
         name: "Ivysaur",
         image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-        number: "#0002"
+        number: "0002",
+        hp: 888,
+        types: ["normal"]
       },
       {
         name: "Venusaur",
         image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-        number: "#0003"
+        number: "0003",
+        hp: 898,
+        types: ["normal"]
       },
       {
         name: "Charmander",
         image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-        number: "#0004"
+        number: "0004",
+        hp: 888,
+        types: ["fire"]
       },
       {
         name: "Charmeleon",
         image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-        number: "#0005"
+        number: "0005",
+        hp: 888,
+        types: ["fire"]
       },
       {
         name: "Charizard",
         image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-        number: "#0006"
+        number: "0006",
+        hp: 888,
+        types: ["fire", "flying"]
       }
     ];
 
