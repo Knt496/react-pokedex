@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
 const Card = ({pokemon}) => (
-    <div className="transition ease-in-out duration-500 hover:scale-105 bg-[#1FB49C] border mb-5 border-gray-200 rounded-lg shadow p-2">
+    <div className="transition ease-in-out duration-500 hover:scale-105 bg-primary border mb-5 border-gray-200 rounded-lg shadow p-2">
       <div className="flex bg-white justify-between mb-1">
         <div className="p-1 text-sm md:text-lg font-bold">
           <span>{pokemon.name}</span>
         </div>
-        <div className="p-1 ps-2 md:ps-3 text-xs md:text-sm font-bold flex items-center border-s-4 border-t-2 border-[#1FB49C] rounded-tl-[30px]">
+        <div className="p-1 ps-2 md:ps-3 text-xs md:text-sm font-bold flex items-center border-s-4 border-t-2 border-primary rounded-tl-[30px]">
           <span>{pokemon.number}</span>
         </div>
       </div>
