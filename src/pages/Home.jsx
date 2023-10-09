@@ -60,12 +60,27 @@ const Home = () => {
   const PokemonList = () => (
     (pokemons.map((pokemon,index) => <Card key={index} pokemon={pokemon} />))
   )
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const {name } = Object.fromEntries(new window.FormData(e.target));
+    console.log("clicked", name);
+  };
       
 
   return (
-    <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
-      <PokemonList />
-    </div>
+    <>
+      <header className="my-2">
+        <h1 className="text-2xl font-extrabold">Pokémon Finder</h1>
+        <form className="flex gap-2" onSubmit={handleSubmit}>
+          <input name="name" type="text" className="border-2 border-primary rounded-md p-1 text-sm focus-visible:outline-[#177363]" placeholder="Bulbasur, Charmander,..."/>
+          <button className="bg-primary rounded-md text-white px-2 shadow hover:bg-[#177363]">Search</button>
+        </form>
+      </header>
+      <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+        <PokemonList />
+      </div>
+    </>
   )
 }
 
