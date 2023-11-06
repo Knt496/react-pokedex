@@ -4,6 +4,8 @@ import Card from "../components/Card";
 const Home = () => {
 
   const [pokemons, setPokemons] = useState([])
+  const [searchValue, setSearchValue] = useState('')
+  const [error, setError] = useState('')
 
 
   const renderData = () => {
@@ -66,6 +68,32 @@ const Home = () => {
     const {name } = Object.fromEntries(new window.FormData(e.target));
     console.log("clicked", name);
   };
+
+  const handleChange = (e) => {
+    const newSearchValue = e.target.value;
+
+    if(newSearchValue.startsWith(" ")) return
+
+    setSearchValue(newSearchValue)
+
+    console.log({searchValue})
+  }
+
+  useEffect(() => {
+  
+    if(searchValue == '') {
+      setError("Can't search for empty value")
+      return
+    }
+
+    if(searchValue.length < 3) {
+      setError("At least 3 characters required")
+      return
+    }
+
+    setError('')
+
+  },[searchValue])
       
 
   return (
@@ -73,9 +101,17 @@ const Home = () => {
       <header className="my-2">
         <h1 className="text-2xl font-extrabold">Pokémon Finder</h1>
         <form className="flex gap-2" onSubmit={handleSubmit}>
-          <input name="name" type="text" className="border-2 border-primary rounded-md p-1 text-sm focus-visible:outline-[#177363]" placeholder="Bulbasur, Charmander,..."/>
+          <input 
+            name="name"
+            type="text"
+            className={`border-2 rounded-md p-1 text-sm ${!error ? "border-primary focus-visible:outline-[#177363]" : "border-red-700 focus-visible:outline-red-800"}`}
+            placeholder="Bulbasur, Charmander,..."
+            value={searchValue}
+            onChange={handleChange}
+          />
           <button className="bg-primary rounded-md text-white px-2 shadow hover:bg-[#177363]">Search</button>
         </form>
+        { error && <p className="text-red-800">{error}</p>}
       </header>
       <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
         <PokemonList />
