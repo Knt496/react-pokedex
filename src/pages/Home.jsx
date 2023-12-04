@@ -1,19 +1,21 @@
-import { useState, useEffect } from "react";
 import { Pokemons } from "../components/Pokemons";
-import pokemonResults from "../mocks/results.json";
+import { usePokemons } from "../customHooks/usePokemons";
 
 import { useSearch } from "../customHooks/useSearch";
 
 const Home = () => {
 
-  const pokemons = pokemonResults.results;
-
   const { searchValue, setSearchValue, error } = useSearch();
+  const { pokemons, getPokemon } = usePokemons({searchValue});
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const {name } = Object.fromEntries(new window.FormData(e.target));
     console.log("clicked", name);
+
+    if(error)return
+
+    getPokemon()
   };
 
   const handleChange = (e) => {

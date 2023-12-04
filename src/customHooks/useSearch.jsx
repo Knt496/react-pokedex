@@ -1,10 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function useSearch () {
   const [searchValue, setSearchValue] = useState('')
   const [error, setError] = useState('')
+  const isFirstInput = useRef(true)
 
   useEffect(() => {
+
+    if(isFirstInput.current) {
+      isFirstInput.current = searchValue === ""
+      return
+    }
   
     if(searchValue == '') {
       setError("Can't search for empty value")
