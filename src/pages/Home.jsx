@@ -13,7 +13,7 @@ const Home = () => {
     const {name } = Object.fromEntries(new window.FormData(e.target));
     console.log("clicked", name);
 
-    if(error)return
+    // if(error)return
 
     getPokemon()
   };

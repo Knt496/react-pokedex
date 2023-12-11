@@ -1,28 +1,29 @@
-import pokemonResults from "../mocks/results.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getPokemonByName, getPokemons } from "../services/pokemons";
 
 export function usePokemons({ searchValue }) {
 
-  const [responseList, setResponseList] = useState([])
+  const [pokemons, setPokemonsList] = useState([])
 
-  const pokemons = responseList;
+  useEffect(() => {
+    getPokemon()
+  },[])
 
 
-  const getPokemon = () => {
+  const getPokemon = async () => {
     
     if(searchValue && searchValue !== '') {
 
-      const filterList =  pokemonResults.results.filter((pokemon) => {
-        return pokemon.name.toLocaleLowerCase() === searchValue.toLocaleLowerCase()
-      })
+      const filterList = await getPokemonByName(searchValue)
 
-      setResponseList(filterList)
+      setPokemonsList(filterList)
     }
     else {
-      setResponseList([])
+      const list = await getPokemons(30)
+
+      setPokemonsList(list)
     }
   }
-
 
   return { pokemons, getPokemon }
 
